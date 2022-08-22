@@ -11,6 +11,10 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import {CustomerManagementModule} from "./features/customer-management/customer-management.module";
 import {ExternalLinkModule} from "./features/external-link/external-link.module";
 import {AuthModule} from "./features/auth/auth.module";
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,13 @@ import {AuthModule} from "./features/auth/auth.module";
     ExternalLinkModule,
 
     // immer als letztes
-    AppRoutingModule
+    AppRoutingModule,
+
+    StoreModule.forRoot({}, {}),
+
+    EffectsModule.forRoot([]),
+
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
