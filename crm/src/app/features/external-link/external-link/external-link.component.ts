@@ -21,14 +21,6 @@ export class ExternalLinkComponent implements OnInit {
     setTimeout(() => {
       window.location.href = this.link;
     }, 4000);
-/*
-    this.activatedRoute.queryParams.subscribe((params) => {
-      console.log(params);
-
-    })
-
-*/
-
   }
 
 }

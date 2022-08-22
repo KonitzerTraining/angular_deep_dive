@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {NavigationStart, Router} from "@angular/router";
+import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'crm';
+
+  constructor(
+    private router: Router
+  ) {
+
+    this.router.events
+      .pipe(
+        filter((event) => {
+          return (event instanceof NavigationStart)
+        })
+      )
+      .subscribe((event) => {
+          console.log(event);
+        }
+      )
+  }
 }
