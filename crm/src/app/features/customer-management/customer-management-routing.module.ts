@@ -5,6 +5,7 @@ import {CustomerListComponent} from "./views/customer-list/customer-list.compone
 import {CustomerEditComponent} from "./views/customer-edit/customer-edit.component";
 import {CustomerDetailComponent} from "./views/customer-detail/customer-detail.component";
 import {CustomerNewComponent} from "./views/customer-new/customer-new.component";
+import {OneCustomerResolver} from "./resolver/one-customer.resolver";
 
 const routes: Routes = [
   {
@@ -17,11 +18,15 @@ const routes: Routes = [
       },
       {
         path: 'edit/:id',
-        component: CustomerEditComponent
+        component: CustomerEditComponent,
+        resolve: {
+          customer: OneCustomerResolver
+        }
       },
       {
         path: 'detail/:id',
-        component: CustomerDetailComponent
+        component: CustomerDetailComponent,
+
       },
       {
         path: 'new',

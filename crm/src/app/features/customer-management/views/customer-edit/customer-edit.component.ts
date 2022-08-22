@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {Customer} from "../../model/customer";
 
 @Component({
   selector: 'app-customer-edit',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-edit.component.scss']
 })
 export class CustomerEditComponent implements OnInit {
+  public customer!: Customer;
 
-  constructor() { }
+  constructor(
+    private activateRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.customer = this.activateRoute.snapshot.data['customer'];
   }
 
 }
