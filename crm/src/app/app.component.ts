@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavigationStart, Router} from "@angular/router";
 import {filter} from "rxjs/operators";
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
     private router: Router
   ) {
 
+    if(!environment.production) {
     this.router.events
       .pipe(
         filter((event) => {
@@ -24,5 +26,6 @@ export class AppComponent {
           console.log(event);
         }
       )
+    }
   }
 }
