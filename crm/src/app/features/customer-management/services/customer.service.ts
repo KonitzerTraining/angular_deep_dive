@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import { Observable} from "rxjs";
+import {map, tap} from "rxjs/operators";
 import {Customer} from "../model/customer";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
@@ -16,7 +17,23 @@ export class CustomerService {
   ) { }
 
   getAll(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(url);
+    return this.http.get<Customer[]>(url).pipe(
+      tap((data: Customer[]) => {
+        console.log(data);
+      }),
+
+      map((customers) => {
+        return customers.map((customer) => {
+          customer.tstamp = Date.now();
+          return customer;
+        });
+      }),
+
+      tap((data: Customer[]) => {
+        console.log(data);
+      }),
+
+    );
   }
 
   getOne(id: number): Observable<Customer> {
