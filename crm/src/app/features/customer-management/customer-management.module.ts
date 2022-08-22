@@ -8,6 +8,8 @@ import { CustomerNewComponent } from './views/customer-new/customer-new.componen
 import { CustomerEditComponent } from './views/customer-edit/customer-edit.component';
 import { CustomerDetailComponent } from './views/customer-detail/customer-detail.component';
 
+import {HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { CustomerDetailComponent } from './views/customer-detail/customer-detail
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     CustomerManagementRoutingModule
   ]
 })
