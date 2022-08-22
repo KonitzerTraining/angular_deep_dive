@@ -9,12 +9,14 @@ import {HelpPagesModule} from "./features/help-pages/help-pages.module";
 import {StartPageModule} from "./features/start-page/start-page.module";
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import {CustomerManagementModule} from "./features/customer-management/customer-management.module";
+import {ExternalLinkModule} from "./features/external-link/external-link.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import {CustomerManagementModule} from "./features/customer-management/customer-
     HelpPagesModule,
     StartPageModule,
     CustomerManagementModule,
+    ExternalLinkModule,
 
     // immer als letztes
     AppRoutingModule

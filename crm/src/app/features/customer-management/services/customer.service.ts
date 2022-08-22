@@ -18,9 +18,9 @@ export class CustomerService {
 
   getAll(): Observable<Customer[]> {
     return this.http.get<Customer[]>(url).pipe(
-      tap((data: Customer[]) => {
+/*      tap((data: Customer[]) => {
         console.log(data);
-      }),
+      }),*/
 
       map((customers) => {
         return customers.map((customer) => {
