@@ -1,1 +1,6 @@
-<p>customer-detail works!</p>
+<div *ngIf="customer">
+<h2>Customer with id {{customer.id}}</h2>
+  <pre>
+{{customer | json}}
+ </pre>
+</div>
