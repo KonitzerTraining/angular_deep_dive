@@ -10,6 +10,7 @@ import {StartPageModule} from "./features/start-page/start-page.module";
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import {CustomerManagementModule} from "./features/customer-management/customer-management.module";
 import {ExternalLinkModule} from "./features/external-link/external-link.module";
+import {AuthModule} from "./features/auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ExternalLinkModule} from "./features/external-link/external-link.module"
     CoreModule,
 
     // Feature Modules
+    AuthModule,
     HelpPagesModule,
     StartPageModule,
     CustomerManagementModule,
