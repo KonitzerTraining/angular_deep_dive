@@ -8,6 +8,7 @@ import {CoreModule} from "./core/core.module";
 import {HelpPagesModule} from "./features/help-pages/help-pages.module";
 import {StartPageModule} from "./features/start-page/start-page.module";
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import {CustomerManagementModule} from "./features/customer-management/customer-management.module";
 
 @NgModule({
   declarations: [
@@ -18,11 +19,15 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
   imports: [
     BrowserModule,
 
+    // Shared Modules
     CoreModule,
+
+    // Feature Modules
     HelpPagesModule,
     StartPageModule,
+    CustomerManagementModule,
 
-
+    // immer als letztes
     AppRoutingModule
   ],
   providers: [],

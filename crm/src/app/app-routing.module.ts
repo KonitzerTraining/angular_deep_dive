@@ -4,7 +4,7 @@ import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 
 const routes: Routes = [
   {
-    path: '**',
+    path: '**',  // Wildcard, catched alle Routen
     component: NotFoundPageComponent
   }
 ];
