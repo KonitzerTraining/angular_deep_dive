@@ -9,6 +9,8 @@ import { CustomerEditComponent } from './views/customer-edit/customer-edit.compo
 import { CustomerDetailComponent } from './views/customer-detail/customer-detail.component';
 
 import {HttpClientModule} from "@angular/common/http";
+import { CustomerFormComponent } from './components/customer-form/customer-form.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,11 +19,13 @@ import {HttpClientModule} from "@angular/common/http";
     CustomerListComponent,
     CustomerNewComponent,
     CustomerEditComponent,
-    CustomerDetailComponent
+    CustomerDetailComponent,
+    CustomerFormComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     CustomerManagementRoutingModule
   ]
 })

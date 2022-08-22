@@ -1,2 +1,3 @@
-<p>customer-edit works!</p>
-<pre>{{customer | json}}</pre>
+<app-customer-form [formData]="customer" (customerFormSubmit)="updateCustomer($event)">
+  Save Changes
+</app-customer-form>

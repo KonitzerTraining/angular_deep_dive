@@ -1,0 +1,19 @@
+<form [formGroup]="customerForm" (ngSubmit)="formSubmitHandler()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" id="name" class="form-control" formControlName="name" [class.is-invalid]="customerForm.controls['name'].invalid">
+  </div>
+  <div class="mb-3">
+    <label for="credit" class="form-label">Credit</label>
+    <input id="credit" type="number" min="0" class="form-control" formControlName="credit" [class.is-invalid]="customerForm.controls['credit'].invalid">
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <button type="button" class="btn btn-outline-secondary" routerLink="/customer-management">
+      Go to List
+    </button>
+    <button class="btn btn-primary" [disabled]="customerForm.invalid">
+      <ng-content></ng-content>
+    </button>
+  </div>
+</form>

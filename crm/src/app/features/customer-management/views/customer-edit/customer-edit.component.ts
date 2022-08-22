@@ -18,4 +18,13 @@ export class CustomerEditComponent implements OnInit {
     this.customer = this.activateRoute.snapshot.data['customer'];
   }
 
+  updateCustomer(customerFromForm: Partial<Customer>) {
+    const editedCustomer = {
+      ...this.customer,
+      ...customerFromForm
+    };
+
+    console.log(editedCustomer);
+  }
+
 }

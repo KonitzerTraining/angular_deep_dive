@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Customer } from '../../model/customer';
 
 @Component({
   selector: 'app-customer-new',
   templateUrl: './customer-new.component.html',
   styleUrls: ['./customer-new.component.scss']
 })
-export class CustomerNewComponent implements OnInit {
+export class CustomerNewComponent {
 
-  constructor() { }
+  constructor(
+    private store: Store
+  ) { }
 
-  ngOnInit(): void {
+  createCustomer(customer: Omit<Customer, 'id'>) {
+
   }
-
 }
