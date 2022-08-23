@@ -27,10 +27,12 @@
       </ul>
 
       <button type="button" class="btn btn-warning" routerLink="/login">Login</button>
-<!--
-      <button type="button" class="btn btn-warning" routerLink="/login" *ngIf="isLoggedOut$ | async">Login</button>
-      <button type="button" class="btn btn-outline-secondary" (click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
-      -->
+      <button type="button" class="btn btn-outline-secondary" (click)="logout()" >Logout</button>
+
+      <!--
+            <button type="button" class="btn btn-warning" routerLink="/login" *ngIf="isLoggedOut$ | async">Login</button>
+            <button type="button" class="btn btn-outline-secondary" (click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
+            -->
     </div>
   </div>
 </nav>

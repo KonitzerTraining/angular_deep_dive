@@ -17,7 +17,7 @@ export const reducer = createReducer(
 
   on(AuthActions.loginSuccess, (state, {user}): State =>
      ({
-      ...state, // Spread
+      ...state, // Spread, hier nicht nötig weil nur eine Prop
       user
     })
   ),
