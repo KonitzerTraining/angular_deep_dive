@@ -3,6 +3,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import {login} from "../store/actions/auth.actions";
 import {Login} from "../model/login";
+import {selectIsLoggedIn, selectIsLoggedOut, selectUserName} from "../store/selectors/auth.selectors";
 
 @Component({
   selector: 'app-login-page',
@@ -25,6 +26,11 @@ export class LoginPageComponent  {
         Validators.required]
     ]
   });
+
+  isLoggedIn$ = this.store.select(selectIsLoggedIn);
+  isLoggedOut$ = this.store.select(selectIsLoggedOut);
+  userName$ = this.store.select(selectUserName);
+
   constructor(
     private fb: FormBuilder,
     private store: Store
