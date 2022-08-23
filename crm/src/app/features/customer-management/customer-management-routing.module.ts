@@ -6,11 +6,15 @@ import {CustomerEditComponent} from "./views/customer-edit/customer-edit.compone
 import {CustomerDetailComponent} from "./views/customer-detail/customer-detail.component";
 import {CustomerNewComponent} from "./views/customer-new/customer-new.component";
 import {OneCustomerResolver} from "./resolver/one-customer.resolver";
+import {LoggedInGuard} from "../auth/guards/logged-in.guard";
 
 const routes: Routes = [
   {
     path: 'customer-management',
     component: CustomerManagementIndexComponent,
+    canActivate: [
+      LoggedInGuard
+    ],
     children: [
       {
         path: '',
