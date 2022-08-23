@@ -17,6 +17,7 @@ export class AuthService {
   ) { }
 
   getUser (login: Login): Observable<User> {
+    console.log(login);
     return this.http.get<User>(url);
   }
 }

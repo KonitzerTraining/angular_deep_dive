@@ -13,7 +13,7 @@ export class AuthEffects {
     login$ = createEffect(() => {
         return this.actions$.pipe(
           ofType(AuthActions.login),
-          concatMap((action) => {
+          mergeMap((action) => {
             return this.auth.getUser(action.login).pipe(
                 map(user => {
                   console.log(user);

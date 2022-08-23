@@ -7,6 +7,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effects';
 import {HttpClientModule} from "@angular/common/http";
+import {StoreModule} from "@ngrx/store";
+import {authFeatureKey, reducer} from "./store/reducers/auth.reducer";
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     AuthRoutingModule,
     HttpClientModule,
+    StoreModule.forFeature(authFeatureKey, reducer),
     EffectsModule.forFeature([AuthEffects])
   ]
 })
