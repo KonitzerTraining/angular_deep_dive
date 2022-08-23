@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import {login} from "../store/actions/auth.actions";
+import {Login} from "../model/login";
 
 @Component({
   selector: 'app-login-page',
@@ -33,7 +34,7 @@ export class LoginPageComponent  {
     console.log(this.loginForm.value);
 
     this.store.dispatch(login({
-      login: this.loginForm.value
+      login: this.loginForm.value as Login
     }));
   }
 }

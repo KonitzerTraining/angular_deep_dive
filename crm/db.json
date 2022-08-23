@@ -1,4 +1,8 @@
 {
+  "user": {
+    "id": 345,
+    "name": "Tim Taler"
+  },
   "customers": [
     {
       "id":  1,

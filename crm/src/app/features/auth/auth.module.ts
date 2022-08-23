@@ -6,6 +6,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effects';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AuthEffects } from './store/effects/auth.effects';
     CommonModule,
     ReactiveFormsModule,
     AuthRoutingModule,
+    HttpClientModule,
     EffectsModule.forFeature([AuthEffects])
   ]
 })

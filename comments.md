@@ -1,3 +1,19 @@
+## RxJS
+
+https://rxjs.dev/
+https://www.learnrxjs.io/
+
+- tap
+- map
+  https://www.learnrxjs.io/learn-rxjs/operators/transformation/map
+- concatMap
+  https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatmap
+- mergeMap
+  https://www.learnrxjs.io/learn-rxjs/operators/transformation/mergemap
+- switchMap
+
+ofType ist von ngrx
+
 
 ## Code Quality
 

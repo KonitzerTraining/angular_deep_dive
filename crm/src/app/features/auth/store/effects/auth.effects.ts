@@ -1,24 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import {concatMap, tap} from 'rxjs/operators';
-import { Observable, EMPTY } from 'rxjs';
+import {catchError, concatMap, map, mergeMap, tap} from 'rxjs/operators';
+import {Observable, EMPTY, of} from 'rxjs';
 import * as AuthActions from '../actions/auth.actions';
+import {AuthService} from "../../services/auth.service";
+import {loginError, loginSuccess} from "../actions/auth.actions";
 
 @Injectable()
 export class AuthEffects {
 
     login$ = createEffect(() => {
-        console.log('effect created');
-
         return this.actions$.pipe(
-          tap((action) => {
-            console.log(action);
-          })
+          ofType(AuthActions.login),
+          concatMap((action) => {
+            return this.auth.getUser(action.login).pipe(
+                map(user => {
+                  console.log(user);
+                  return AuthActions.loginSuccess({user})
+                }),
+                catchError(error => of(AuthActions.loginError({error}))))
+            }
+          )
+
         );
-    }, {
+    }, /*{
       dispatch: false
-    });
+    }*/);
 
 
 /*  loadAuths$ = createEffect(() => {
@@ -30,5 +38,8 @@ export class AuthEffects {
     );
   });*/
 
-  constructor(private actions$: Actions) {}
+  constructor(
+    private actions$: Actions,
+    private auth: AuthService
+  ) {}
 }

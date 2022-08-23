@@ -13,7 +13,8 @@ export const loginSuccess = createAction(
 );
 
 export const loginError = createAction(
-  '[Auth] Login Error'
+  '[Auth] Login Error',
+  props<{error: Error}>()
 );
 
 
