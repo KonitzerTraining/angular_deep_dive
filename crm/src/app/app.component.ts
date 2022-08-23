@@ -15,6 +15,12 @@ export class AppComponent {
     private router: Router
   ) {
 
+    const worker = new Worker(new URL('./compute.worker', import.meta.url));
+    worker.postMessage('hello');
+    worker.onmessage = (message) => {
+      console.log(message);
+    }
+
     if(!environment.production) {
     this.router.events
       .pipe(

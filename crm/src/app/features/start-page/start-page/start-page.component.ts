@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
@@ -6,7 +6,7 @@ import {DomSanitizer} from "@angular/platform-browser";
   templateUrl: './start-page.component.html',
   styleUrls: ['./start-page.component.scss']
 })
-export class StartPageComponent  {
+export class StartPageComponent {
 
   url = 'javascript:alert(123);';
 
@@ -17,5 +17,6 @@ export class StartPageComponent  {
   constructor(
     private sanitizer: DomSanitizer
   ) { }
+
 
 }

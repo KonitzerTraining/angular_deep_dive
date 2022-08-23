@@ -60,3 +60,10 @@ Documentation:
 
 - https://compodoc.app/guides/comments.html
 - https://compodoc.app/guides/jsdoc-tags.html
+
+## Performance
+
+### Lazy Loading
+
+- Preloading Strategies
+  https://medium.com/geekculture/preloading-strategy-in-angularsave-loading-time-ca791074fe28

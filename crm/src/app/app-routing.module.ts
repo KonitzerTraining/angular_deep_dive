@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 import {environment} from "../environments/environment";
 
@@ -17,12 +17,12 @@ const routes: Routes = [
     path: '**',  // Wildcard, catched alle Routen
     component: NotFoundPageComponent
   },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    //enableTracing: !environment.production
+    // enableTracing: !environment.production
+    preloadingStrategy: PreloadAllModules
   })],
   exports: [RouterModule]
 })
