@@ -9,7 +9,8 @@ import { Customer } from '../../model/customer';
 })
 export class CustomerFormComponent implements OnInit {
 
-  @Input() formData ?: Customer | null;
+  @Input() formData ?: Customer;
+
   @Output()
   customerFormSubmit = new EventEmitter();
 
