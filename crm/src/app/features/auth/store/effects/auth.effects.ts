@@ -6,6 +6,7 @@ import {Observable, EMPTY, of} from 'rxjs';
 import * as AuthActions from '../actions/auth.actions';
 import {AuthService} from "../../services/auth.service";
 import {loginError, loginSuccess} from "../actions/auth.actions";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class AuthEffects {
@@ -28,18 +29,21 @@ export class AuthEffects {
       dispatch: false
     }*/);
 
+    logout$ = createEffect(() => {
+      return this.actions$.pipe(
+        ofType(AuthActions.logout),
+        tap(() => {
+          this.router.navigateByUrl('/start');
+        })
+      );
+    }, {
+      dispatch: false
+    })
 
-/*  loadAuths$ = createEffect(() => {
-    return this.actions$.pipe(
-
-      ofType(AuthActions.loadAuths),
-      /!** An EMPTY observable only emits completion. Replace with your own observable API request *!/
-      concatMap(() => EMPTY as Observable<{ type: string }>)
-    );
-  });*/
 
   constructor(
     private actions$: Actions,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) {}
 }
