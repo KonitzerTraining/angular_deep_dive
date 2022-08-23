@@ -14,6 +14,20 @@ https://www.learnrxjs.io/
 
 ofType ist von ngrx
 
+## Security
+
+https://html5sec.org/
+https://wiki.owasp.org/index.php/OWASP_Guide_Project
+
+- Up-to-date bleiben (wöchentlich)
+  https://update.angular.io/
+
+- Rollenkonzepte (am Client und am Server)
+  Rolle im User -> Guards
+- Authentifizierung OAuth
+
+Verifizieren 
+- durch Pentests
 
 ## Code Quality
 

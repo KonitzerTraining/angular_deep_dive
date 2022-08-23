@@ -1,7 +1,8 @@
 {
   "user": {
     "id": 345,
-    "name": "Tim Taler"
+    "name": "Tim Taler",
+    "role": 2
   },
   "customers": [
     {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import {Store} from "@ngrx/store";
 import {selectIsLoggedIn} from "../store/selectors/auth.selectors";
@@ -14,9 +14,7 @@ export class LoggedInGuard implements CanActivate {
     private router: Router
   ) {
   }
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> {
+  canActivate(): Observable<boolean> {
 
     return this.store.select(selectIsLoggedIn).pipe(
       tap((loggedIn) => {
@@ -26,5 +24,4 @@ export class LoggedInGuard implements CanActivate {
       })
     );
   }
-
 }

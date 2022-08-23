@@ -4,7 +4,8 @@ import {HelpPagesIndexComponent} from "./help-pages-index/help-pages-index.compo
 
 const routes: Routes = [
   {
-    path: 'help',
+    // path: 'help',
+    path: '',
     component: HelpPagesIndexComponent
   }
 ];

@@ -31,7 +31,7 @@ import { environment } from '../environments/environment';
 
     // Feature Modules
     AuthModule,
-    HelpPagesModule,
+    // HelpPagesModule, // Lazy Loading
     StartPageModule,
     CustomerManagementModule,
     ExternalLinkModule,
