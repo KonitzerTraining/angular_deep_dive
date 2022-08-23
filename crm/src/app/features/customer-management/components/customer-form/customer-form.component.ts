@@ -2,13 +2,21 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Customer } from '../../model/customer';
 
+/**
+ * Customer Form
+ *
+ * Will be used in customer-edit and customer-new.component.html
+ */
+
 @Component({
   selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
   styleUrls: ['./customer-form.component.scss']
 })
 export class CustomerFormComponent implements OnInit {
-
+  /**
+   * For edit
+   */
   @Input() formData ?: Customer;
 
   @Output()
