@@ -6,6 +6,7 @@ import { CustomerEffects } from './customer.effects';
 import {CustomerService} from "../../services/customer.service";
 import {customerServiceMockFactory} from "../../../../../../mocks/services/customer.service";
 import {customersMock} from "../../../../../../mocks/api/customers";
+import {newCustomer} from "../actions/customer.actions";
 
 fdescribe('CustomerEffects', () => {
   let actions$: Observable<any>;
@@ -42,7 +43,7 @@ fdescribe('CustomerEffects', () => {
         })
       })
     })
-  })
+  });
 
   describe('loadCustomers$', () => {
     it('should load from customerService', () => {
@@ -56,5 +57,25 @@ fdescribe('CustomerEffects', () => {
         })
       })
     })
-  })
+  });
+
+
+  describe('newCustomer$', () => {
+    it('should create with customerService.postOne', () => {
+      actions$ = of({
+        type: '[Customers] New Customer',
+        customer: customersMock[0]
+      });
+
+      effects.newCustomer$.subscribe(action => {
+
+        expect(customerServiceMock.postOne).toHaveBeenCalled();
+
+        expect(action).toEqual({
+          type: '[Customers] New Customer Success',
+          customer: customersMock[0]
+        })
+      })
+    })
+  });
 });
