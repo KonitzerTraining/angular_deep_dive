@@ -3,6 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import {CustomerService} from './customer.service';
 import createSpyObj = jasmine.createSpyObj;
 import {HttpClient} from "@angular/common/http";
+import {customersMock} from "../../../../../mocks/api/customers";
 
 fdescribe('CustomerService', () => {
   let service: CustomerService;
@@ -48,7 +49,7 @@ fdescribe('CustomerService', () => {
     });
 
     it('should call http.get', () => {
-      service.getOne(1);
+      service.getOne(customersMock[0].id);
       expect(httpClientMock.get).toHaveBeenCalled();
     })
   });
@@ -60,7 +61,7 @@ fdescribe('CustomerService', () => {
     });
 
     it('should call http.delete', () => {
-      service.deleteOne(1);
+      service.deleteOne(customersMock[0].id);
       expect(httpClientMock.delete).toHaveBeenCalled();
     })
   });
@@ -70,7 +71,7 @@ fdescribe('CustomerService', () => {
       expect(service.postOne).toBeDefined();
     });
     it('should call http.post', () => {
-      service.postOne({name: 'test', credit: 0});
+      service.postOne(customersMock[0]);
       expect(httpClientMock.post).toHaveBeenCalled();
     })
   });
@@ -82,8 +83,8 @@ fdescribe('CustomerService', () => {
     });
 
     it('should call http.put', () => {
-      service.putOne({id: 1, name: 'test', credit: 0});
-      expect(httpClientMock.putOne).toHaveBeenCalled();
+      service.putOne(customersMock[0]);
+      expect(httpClientMock.put).toHaveBeenCalled();
     });
   });
 });
