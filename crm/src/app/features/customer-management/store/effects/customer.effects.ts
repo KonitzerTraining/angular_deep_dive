@@ -97,7 +97,7 @@ export class CustomerEffects {
       concatMap((action) =>
         this.customerService.deleteOne(action.id).pipe(
           map(() => CustomersActions.deleteCustomerSuccess()),
-          catchError(error => of(CustomersActions.editCustomerFailure({ error }))))
+          catchError(error => of(CustomersActions.deleteCustomerFailure({ error }))))
       )
     );
   });

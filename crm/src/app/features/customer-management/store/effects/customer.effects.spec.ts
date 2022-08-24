@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import {provideMockActions} from '@ngrx/effects/testing';
-import {Observable, of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 
 import {CustomerEffects} from './customer.effects';
 import {CustomerService} from "../../services/customer.service";
@@ -71,6 +71,26 @@ fdescribe('CustomerEffects', () => {
         })
       })
     })
+
+    it('should throw Error', () => {
+      const errorMessage = 'Server Down';
+
+      customerServiceMock.getAll.and.callFake(() => {
+        return throwError(() => {
+          return new Error(errorMessage);
+        })
+      });
+
+      actions$ = of({type: '[Customers] Load Customers'});
+
+      effects.loadCustomers$.subscribe(action => {
+        expect(customerServiceMock.getAll).toHaveBeenCalled();
+        expect(action).toEqual({
+          type: '[Customers] Load Customers Failure',
+          error: new Error(errorMessage)
+        })
+      })
+    });
   });
 
   describe('newCustomer$', () => {
@@ -89,7 +109,27 @@ fdescribe('CustomerEffects', () => {
           customer: customersMock[0]
         })
       })
-    })
+    });
+
+    it('should throw Error', () => {
+      const errorMessage = 'Server Down';
+
+      customerServiceMock.postOne.and.callFake(() => {
+        return throwError(() => {
+          return new Error(errorMessage);
+        })
+      });
+
+      actions$ = of({type: '[Customers] New Customer'});
+
+      effects.newCustomer$.subscribe(action => {
+        expect(customerServiceMock.postOne).toHaveBeenCalled();
+        expect(action).toEqual({
+          type: '[Customers] New Customer Failure',
+          error: new Error(errorMessage)
+        })
+      })
+    });
   });
 
   describe('newCustomerSuccess$', () => {
@@ -100,6 +140,115 @@ fdescribe('CustomerEffects', () => {
       });
 
       effects.newCustomerSuccess$.subscribe(action => {
+
+        expect(action).toEqual({
+          type: '[Customers] Load Customers',
+        })
+      })
+    })
+  });
+
+  describe('editCustomer$', () => {
+    it('should create with customerService.putOne', () => {
+      actions$ = of({
+        type: '[Customers] Edit Customer',
+        customer: customersMock[0]
+      });
+
+      effects.editCustomer$.subscribe(action => {
+
+        expect(customerServiceMock.putOne).toHaveBeenCalled();
+
+        expect(action).toEqual({
+          type: '[Customers] Edit Customer Success',
+          customer: customersMock[0]
+        })
+      })
+    });
+
+    it('should throw Error', () => {
+      const errorMessage = 'Server Down';
+
+      customerServiceMock.putOne.and.callFake(() => {
+        return throwError(() => {
+          return new Error(errorMessage);
+        })
+      });
+
+      actions$ = of({type: '[Customers] Edit Customer'});
+
+      effects.editCustomer$.subscribe(action => {
+        expect(customerServiceMock.putOne).toHaveBeenCalled();
+        expect(action).toEqual({
+          type: '[Customers] Edit Customer Failure',
+          error: new Error(errorMessage)
+        })
+      })
+    });
+  });
+
+  describe('editCustomerSuccess$', () => {
+    it('should navigate and dispatch loadCustomers', () => {
+      actions$ = of({
+        type: '[Customers] Edit Customer Success',
+        customer: customersMock[0]
+      });
+
+      effects.editCustomerSuccess$.subscribe(action => {
+
+        expect(action).toEqual({
+          type: '[Customers] Load Customers',
+        })
+      })
+    })
+  });
+
+  describe('deleteCustomer$', () => {
+    it('should delete with customerService.deleteOne', () => {
+      actions$ = of({
+        type: '[Customers] Delete Customer',
+        customer: customersMock[0]
+      });
+
+      effects.deleteCustomer$.subscribe(action => {
+
+        expect(customerServiceMock.deleteOne).toHaveBeenCalled();
+
+        expect(action).toEqual({
+          type: '[Customers] Delete Customer Success',
+        })
+      })
+    });
+
+    it('should throw Error', () => {
+      const errorMessage = 'Server Down';
+
+      customerServiceMock.deleteOne.and.callFake(() => {
+        return throwError(() => {
+          return new Error(errorMessage);
+        })
+      });
+
+      actions$ = of({type: '[Customers] Delete Customer'});
+
+      effects.deleteCustomer$.subscribe(action => {
+        expect(customerServiceMock.deleteOne).toHaveBeenCalled();
+        expect(action).toEqual({
+          type: '[Customers] Delete Customer Failure',
+          error: new Error(errorMessage)
+        })
+      })
+    });
+  });
+
+  describe('deleteCustomerSuccess$', () => {
+    it('should navigate and dispatch loadCustomers', () => {
+      actions$ = of({
+        type: '[Customers] Delete Customer Success',
+        customer: customersMock[0]
+      });
+
+      effects.deleteCustomerSuccess$.subscribe(action => {
 
         expect(action).toEqual({
           type: '[Customers] Load Customers',
