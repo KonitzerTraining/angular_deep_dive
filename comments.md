@@ -31,6 +31,10 @@ Verifizieren
 
 ## Code Quality
 
+Hooks verwenden:
+
+https://typicode.github.io/husky/#/
+
 ## Testing
 
 ### Unit Test
@@ -48,6 +52,7 @@ Jasmine / Jest (nx.dev)
 
 #### Mock-Tool
 https://www.npmjs.com/package/ng-mocks
+https://ng-mocks.sudo.eu/api/MockProvider
 
 #### Regeln
 - Test immer parallel zum Code entwerfen

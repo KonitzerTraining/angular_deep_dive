@@ -22,7 +22,7 @@ export class CustomerService {
         console.log(data);
       }),*/
 
-      map((customers) => {
+     /* map((customers) => {
         return customers.map((customer) => {
           customer.tstamp = Date.now();
           return customer;
@@ -32,7 +32,7 @@ export class CustomerService {
       tap((data: Customer[]) => {
         console.log(data);
       }),
-
+*/
     );
   }
 

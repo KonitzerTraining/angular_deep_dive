@@ -7,7 +7,7 @@ import {NavigationComponent} from "./navigation/navigation.component";
 // Suite
 // xdescribe (exclude)
 // fdescribe (focus)
-fdescribe('AppComponent', () => {
+describe('AppComponent', () => {
 
   // beforeEach Auführen for jeder Spec (it)
   // beforeAll
