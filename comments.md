@@ -29,6 +29,11 @@ https://wiki.owasp.org/index.php/OWASP_Guide_Project
 Verifizieren 
 - durch Pentests
 
+### Authentification
+
+https://blog.angular-university.io/angular-jwt-authentication/
+https://www.angulararchitects.io/aktuelles/authentication-in-angular-2-with-oauth2-oidc/
+
 ## Code Quality
 
 Hooks verwenden:
@@ -97,6 +102,13 @@ Documentation:
 - https://compodoc.app/guides/jsdoc-tags.html
 
 ## Performance
+https://angular.io/guide/aot-compiler
+
+### PWA 
+
+https://web.dev/progressive-web-apps/#introduction
+https://angular.io/guide/service-worker-getting-started
+
 
 ### Lazy Loading
 

@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 import createSpyObj = jasmine.createSpyObj;
 import {CustomerManagementIndexComponent} from "../../customer-management-index/customer-management-index.component";
 
-fdescribe('CustomerEffects', () => {
+describe('CustomerEffects', () => {
   let actions$: Observable<any>;
   let effects: CustomerEffects;
   let customerServiceMock: any;
