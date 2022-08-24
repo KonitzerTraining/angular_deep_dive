@@ -1,15 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 
 import { CustomerEffects } from './customer.effects';
 import {CustomerService} from "../../services/customer.service";
 import {customerServiceMockFactory} from "../../../../../../mocks/services/customer.service";
+import {customersMock} from "../../../../../../mocks/api/customers";
 
 fdescribe('CustomerEffects', () => {
   let actions$: Observable<any>;
   let effects: CustomerEffects;
-  let customerServiceMock;
+  let customerServiceMock: any;
 
   beforeEach(() => {
 
@@ -30,4 +31,18 @@ fdescribe('CustomerEffects', () => {
   it('should be created', () => {
     expect(effects).toBeTruthy();
   });
+
+  describe('loadCustomers', () => {
+    it('should load from customerService', () => {
+      actions$ = of({ type: '[Customers] Load Customers' });
+
+      effects.loadCustomers$.subscribe(action => {
+        expect(customerServiceMock.getAll).toHaveBeenCalled();
+        expect(action).toEqual({
+          type: '[Customers] Load Customers Success',
+          customers: customersMock
+        })
+      })
+    })
+  })
 });

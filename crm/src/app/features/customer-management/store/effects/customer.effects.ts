@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, concatMap, tap, switchMap, debounce, debounceTime } from 'rxjs/operators';
-import { EMPTY, of } from 'rxjs';
+import { catchError, map, concatMap, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 import * as CustomersActions from '../actions/customer.actions';
 import * as AuthActions from '../../../auth/store/actions/auth.actions';
 import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-
 
 @Injectable()
 export class CustomerEffects {
@@ -113,7 +111,6 @@ export class CustomerEffects {
 
   constructor(
     private customerService: CustomerService,
-    private store: Store,
     private actions$: Actions,
     private router: Router
   ) { }
