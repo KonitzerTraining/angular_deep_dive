@@ -31,6 +31,36 @@ Verifizieren
 
 ## Code Quality
 
+## Testing
+
+### Unit Test
+Jasmine / Jest (nx.dev)
+
+- https://jasmine.github.io/
+- https://github.com/karma-runner
+- https://www.npmjs.com/package/karma-mocha-reporter
+- https://www.npmjs.com/package/@chiragrupani/karma-chromium-edge-launcher
+
+1. Grundgerüst
+2. Test wird rudimentär erstellt
+3. Test und Code werden gleichzeitig aufgebaut
+4. Tests und Code müssen linten vor der Testausführung
+
+#### Mock-Tool
+https://www.npmjs.com/package/ng-mocks
+
+#### Regeln
+- Test immer parallel zum Code entwerfen
+- Units werden unabhängig getestet
+- Testdaten dürfen nicht im Testen
+- Tests sind unabhängig von der Umgebung
+
+
+### FE-Tests
+Werkzeuge:
+- Cypress
+- TestCafe
+
 ### Lint
 
 ESLint
