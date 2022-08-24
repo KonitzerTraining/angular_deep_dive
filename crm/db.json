@@ -6,34 +6,44 @@
   },
   "customers": [
     {
-      "id":  1,
+      "id": 1,
       "name": "Tim",
       "credit": 500
     },
     {
-      "id":  2,
+      "id": 2,
       "name": "Matt",
       "credit": 500
     },
     {
-      "id":  3,
+      "id": 3,
       "name": "Stan",
       "credit": 500
     },
     {
-      "id":  4,
+      "id": 4,
       "name": "Tom",
       "credit": 500
     },
     {
-      "id":  5,
+      "id": 5,
       "name": "Lee",
       "credit": 500
     },
     {
-      "id":  6,
-      "name": "Roy",
-      "credit": 500
+      "name": "Nayme",
+      "credit": 234,
+      "id": 7
+    },
+    {
+      "name": "asdf",
+      "credit": 0,
+      "id": 8
+    },
+    {
+      "name": "etrzu",
+      "credit": 0,
+      "id": 9
     }
   ]
 }

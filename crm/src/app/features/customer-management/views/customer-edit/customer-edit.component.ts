@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Customer} from "../../model/customer";
+import {Store} from "@ngrx/store";
+import { editCustomer } from '../../store/actions/customer.actions';
 
 @Component({
   selector: 'app-customer-edit',
@@ -11,7 +13,8 @@ export class CustomerEditComponent implements OnInit {
   public customer!: Customer;
 
   constructor(
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private store: Store,
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +27,7 @@ export class CustomerEditComponent implements OnInit {
       ...customerFromForm
     };
 
-    console.log(editedCustomer);
+    this.store.dispatch(editCustomer({ customer: editedCustomer }));
   }
 
 }

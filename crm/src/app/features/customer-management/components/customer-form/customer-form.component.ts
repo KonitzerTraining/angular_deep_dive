@@ -24,7 +24,7 @@ export class CustomerFormComponent implements OnInit {
 
   customerForm = this.fb.group({
     name: [
-      'asdf',
+      '',
       [
         Validators.required,
         Validators.minLength(2)

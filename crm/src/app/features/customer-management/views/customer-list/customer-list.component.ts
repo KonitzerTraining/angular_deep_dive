@@ -1,27 +1,38 @@
-import {Component, OnInit} from '@angular/core';
-import {CustomerService} from "../../services/customer.service";
+import {Component} from '@angular/core';
+// import {CustomerService} from "../../services/customer.service";
 import {Customer} from "../../model/customer";
+import { deleteCustomer, loadCustomers } from '../../store/actions/customer.actions';
+import { selectCustomers } from '../../store/selectors/customer.selectors';
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss']
 })
-export class CustomerListComponent implements OnInit {
-  public customers: Customer[] = [];
+export class CustomerListComponent {
+  /*public customers: Customer[] = [];
   private loading: boolean = false;
-  private errorMessage: string | null = null;
+  private errorMessage: string | null = null;*/
+
+  customers$ = this.store.select(selectCustomers);
 
   constructor(
-    private customerService: CustomerService
-  ) {
+    private store: Store
+  ) { }
+
+  reloadCustomers() {
+    this.store.dispatch(loadCustomers());
   }
 
-  ngOnInit(): void {
+  deleteCustomer(id: number) {
+    this.store.dispatch(deleteCustomer({id}));
+  }
+/*  ngOnInit(): void {
     this.loadCustomers();
-  }
+  }*/
 
-  loadCustomers() {
+/*  loadCustomers() {
     this.loading = true;
     this.customerService.getAll()
       .subscribe({
@@ -34,10 +45,6 @@ export class CustomerListComponent implements OnInit {
           this.loading = false;
         }
       })
-  }
-
-  deleteCustomer(id: number) {
-
-  }
+  }*/
 
 }

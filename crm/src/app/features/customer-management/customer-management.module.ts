@@ -11,6 +11,10 @@ import { CustomerDetailComponent } from './views/customer-detail/customer-detail
 import {HttpClientModule} from "@angular/common/http";
 import { CustomerFormComponent } from './components/customer-form/customer-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { EffectsModule } from '@ngrx/effects';
+import { CustomerEffects } from './store/effects/customer.effects';
+import {StoreModule} from "@ngrx/store";
+import {customerFeatureKey, reducer} from "./store/reducers/customer.reducer";
 
 
 @NgModule({
@@ -26,7 +30,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CustomerManagementRoutingModule
+    CustomerManagementRoutingModule,
+    StoreModule.forFeature(customerFeatureKey, reducer),
+    EffectsModule.forFeature([CustomerEffects])
   ]
 })
 export class CustomerManagementModule { }

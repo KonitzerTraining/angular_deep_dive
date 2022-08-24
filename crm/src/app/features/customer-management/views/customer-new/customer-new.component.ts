@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Customer } from '../../model/customer';
+import { newCustomer } from '../../store/actions/customer.actions';
 
 @Component({
   selector: 'app-customer-new',
@@ -14,6 +15,6 @@ export class CustomerNewComponent {
   ) { }
 
   createCustomer(customer: Omit<Customer, 'id'>) {
-
+    this.store.dispatch(newCustomer({customer}));
   }
 }
