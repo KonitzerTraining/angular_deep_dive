@@ -32,7 +32,19 @@ fdescribe('CustomerEffects', () => {
     expect(effects).toBeTruthy();
   });
 
-  describe('loadCustomers', () => {
+  describe('loginSuccess$', () => {
+    it('should dispatch loadCustomers', () => {
+      actions$ = of({ type: '[Auth] Login Success' });
+
+      effects.loginSuccess$.subscribe(action => {
+        expect(action).toEqual({
+          type: '[Customers] Load Customers'
+        })
+      })
+    })
+  })
+
+  describe('loadCustomers$', () => {
     it('should load from customerService', () => {
       actions$ = of({ type: '[Customers] Load Customers' });
 

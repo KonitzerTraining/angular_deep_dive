@@ -36,10 +36,11 @@ export class CustomerEffects {
     return this.actions$.pipe(
 
       ofType(CustomersActions.newCustomer),
+      /*
       tap((action) => {
         console.log(action)
       }),
-
+      */
       concatMap((action) =>
         this.customerService.postOne(action.customer).pipe(
           map(customer => CustomersActions.newCustomerSuccess({ customer })),
