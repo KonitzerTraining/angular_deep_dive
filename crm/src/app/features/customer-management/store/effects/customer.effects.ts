@@ -112,9 +112,9 @@ export class CustomerEffects {
   });
 
   constructor(
+    private customerService: CustomerService,
     private store: Store,
     private actions$: Actions,
-    private customerService: CustomerService,
     private router: Router
   ) { }
 }

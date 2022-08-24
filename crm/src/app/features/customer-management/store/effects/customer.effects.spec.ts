@@ -3,16 +3,24 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
 import { CustomerEffects } from './customer.effects';
+import {CustomerService} from "../../services/customer.service";
+import {customerServiceMockFactory} from "../../../../../../mocks/services/customer.service";
 
-describe('CustomerEffects', () => {
+fdescribe('CustomerEffects', () => {
   let actions$: Observable<any>;
   let effects: CustomerEffects;
+  let customerServiceMock;
 
   beforeEach(() => {
+
+    customerServiceMock = customerServiceMockFactory();
     TestBed.configureTestingModule({
       providers: [
         CustomerEffects,
-        provideMockActions(() => actions$)
+        provideMockActions(() => actions$),
+        {
+         provide: CustomerService, useValue: customerServiceMock
+        }
       ]
     });
 

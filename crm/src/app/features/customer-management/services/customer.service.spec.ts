@@ -5,7 +5,7 @@ import createSpyObj = jasmine.createSpyObj;
 import {HttpClient} from "@angular/common/http";
 import {customersMock} from "../../../../../mocks/api/customers";
 
-fdescribe('CustomerService', () => {
+describe('CustomerService', () => {
   let service: CustomerService;
   let httpClientMock: any;
 
